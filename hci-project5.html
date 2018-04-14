@@ -34,6 +34,7 @@
         <li class="parent"><a href="other">Other</a>
             <ul class="child">
                 <li><a href="film-stats">Film Stats</a></li>
+                <li><a href="four">Four</a></li>
                 <li><a href="hci-project2">HCI Project 2</a></li>
                 <li><a href="ook">Ook!</a></li>
             </ul>
@@ -165,6 +166,8 @@ div#picture-frame {
         var dl = 0;
         var cl = 0;
         var c = 0;
+		var t1 = 0;
+		var c2 = 0;
 
       //Enable detection of all Expressions, Emotions and Emojis classifiers.
       detector.detectAllEmotions();
@@ -272,17 +275,36 @@ div#picture-frame {
                 cl = avg;
                 console.log("cl = " + cl);
                 avg = 0;
-                p.style.backgroundImage = "none";
+                p.style.backgroundImage = "url('images/tea.jpg')";
                 if (dl > cl) {
                     alert("You like dogs more!");
                 } else {
                     alert("You like cats more!");
                 }
-                onReset();
-            }
+                
+            } else if (c == 3) {
+				t1 = avg;
+				console.log("t1 = " + t1);
+				avg = 0;
+				p.style.backgroundImage = "url('images/coffee.jpg')";
+				
+			} else if (c == 4) {
+				c2 = avg;
+				console.log("c2 = " + c2);
+				avg = 0;
+				p.style.backgroundImage = "url('images/coffee.jpg')";
+				if (t1 > c2) {
+                    alert("You like tea more!");
+                } else {
+                    alert("You like coffee more!");
+                }
+				onReset();
+			}
 
             c++;
+			
           }
+		  
           if (faces[0].emotions.joy > 50) {
             n.style.left = "10px";
           } else {
@@ -333,4 +355,3 @@ div#picture-frame {
 </body>
 
 </html>
-
